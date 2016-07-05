@@ -120,7 +120,6 @@ class HotwordDetector(object):
                                         frames_per_buffer=2048,
                                         stream_callback=audio_callback)
 
-
     def start(self, detected_callback=play_audio_file,
               interrupt_check=lambda: False,
               sleep_time=0.03):
@@ -184,11 +183,11 @@ class HotwordDetector(object):
                                          time.localtime(time.time()))
                 logger.info(message)
                 callback = detected_callback[ans-1]
-                global ax
+              	self.stream_in.close()
+		global ax
                 import main
                 main.setup()
                 main.start()
-
                 ax = returnabcdefgh()
 
         logger.debug("finished.")
